@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta {{item.name}}="viewport" content="w{{item.id}}th=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    {% block title %}
+    <title>Crud App | Home</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div class="main">
+        <div class="center">
+            {% block content %}
+            <h1> Employee Record Table</h1>
+            <a id='btn' href="/add">Add Record</a>
+            <form method="post" class="search">
+                {% csrf_token %}
+                <input type="search" name="search" placeholder="Enter Something to search">
+                <button type="search">Search</button>
+            </form>
+            <table class="table" >
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.salary}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.state}}</td>
+                    <td><a href="/update/{{item.id}}">update</td>
+                    <td><a href="/delete/{{item.id}}">delete</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!--{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta {{item.name}}="viewport" content="w{{item.id}}th=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title>Crud App | Home</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="center">
+            <h1> Employee Record Table</h1>
+            <a id='btn' href="/add">Add Record</a>
+            <form method="post" class="search">
+                {% csrf_token %}
+                <input type="search" name="search" placeholder="Enter Something to search">
+                <button type="search">Search</button>
+            </form>
+            <table class="table" >
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for item in data %}
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.salary}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.state}}</td>
+                    <td><a href="/update/{{item.id}}">update</td>
+                    <td><a href="/delete/{{item.id}}">delete</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

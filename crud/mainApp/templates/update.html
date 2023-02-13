@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud App | Add Record</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    <div class="main">
+        <div class="center">
+            <h1> Upadte Employee Record</h1>
+            <a id="btn" href="/">Home</a>
+            <form method="post" action="" class="mainform">
+                {% csrf_token %}
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Enter Employee Name : " value="{{data.name}}">
+                <br>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter Employee Email : " value="{{data.email}}">
+                <br>
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="Enter Employee Phone number : " value="{{data.phone}}">
+                <br>
+                <label>Salary</label>
+                <input type="number" name="salary" placeholder="Enter Employee Salary :" value="{{data.salary}}">
+                <br>
+                <label>City</label>
+                <input type="text" name="city" placeholder="Enter Employee City : " value="{{data.city}}">
+                <br>
+                <label>State</label>
+                <input type="text" name="state" placeholder="Enter Employee State : " value="{{data.state}}">
+                <br>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

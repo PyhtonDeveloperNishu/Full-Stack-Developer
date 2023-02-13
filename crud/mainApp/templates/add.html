@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crud App | Add Record</title>
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+  <div class="main">
+    <div class="center">
+      <h1>Add Empolyee Record</h1>
+      <a id="btn" href="/">Home</a>
+      <form method="post" action="" class="mainform">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" , name="name" placeholder="Enter Employee Name : ">
+        <br>
+        <label>Email</label>
+        <input type="email" , name="email" placeholder="Enter Email Address : ">
+        <br>
+        <label>Phone</label>
+        <input type="text" , name="phone" placeholder="Enter Phone Number : ">
+        <br>
+        <label>Salary</label>
+        <input type="number" , name="number" placeholder="Enter Emloyee Salary : ">
+        <br>
+        <label>City</label>
+        <input type="text" , name="city" placeholder="Enter Employee City : ">
+        <br>
+        <label>State</label>
+        <input type="text" , name="state" placeholder="Enter Employee State : ">
+        <br>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
